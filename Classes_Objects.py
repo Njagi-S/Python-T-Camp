@@ -57,13 +57,9 @@ class Calculator:
         return self.num1 * self.num2
 
     def divide(self):
-     # Handle potential division by zero error
-        try:
-            division = my_calculator.divide()
-            return self.num1 / self.num2
-        except ValueError as e:
-            error_message = str(e)
-            print(error_message)
+        if self.num2 == 0:
+            raise ValueError("Cannot divide by zero")
+        return self.num1 / self.num2
 
 # Perform calculations
 num_x = float(input("Enter The First Number: "))
@@ -77,9 +73,6 @@ subtraction = my_calculator.subtract()
 multiplication = my_calculator.multiply()
 division = my_calculator.divide()
 
-
-
 print(f"The result of {num_x} + {num_y} is: {addition}")
 print(f"The result of {num_x} - {num_y} is: {subtraction}")
 print(f"The result of {num_x} * {num_y }is: {multiplication}")
-print(f"The result of {num_x} / {num_y} is: {division}")
